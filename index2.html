@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="container">
+  <div class="content">
+    <div class="row">
+      <div>
+        <label for="a">First Name</label>
+        <input type="text" id="a" name="a" style="width: 100px;">
+      </div>
+    </div>
+
+    <div class="row">
+      <div>
+        <label for="b">Last Name</label>
+        <input type="text" id="b" name="b" style="width: 100px;">
+      </div>
+    </div>
+
+    <button id="add">Say Hello</button>
+    <ul></ul>
+  </div>
+</div>
+<script>
+  const myList = document.querySelector('ul');
+  const addButton = document.getElementById('add');
+  const item = document.getElementById('a');
+  const item2 = document.getElementById('b');
+  function addItem(){
+
+    let newElement = document.createElement('li');
+    newElement.textContent = item.value + " " + item2.value;
+    item.value = "";
+    item2.value = "";
+    newElement.addEventListener('click', function(e){
+      newElement.remove();
+    });
+    myList.appendChild(newElement)
+
+  }
+  addButton.addEventListener('click', addItem);
+
+</script>
+
+
+</body>
+</html>
